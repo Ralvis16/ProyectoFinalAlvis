@@ -1,14 +1,16 @@
+// Definimos la Clase
 class Producto {
   constructor(id, nombre, cantidad, desc, precio, img) {
     this.id = id;
     this.nombre = nombre;
     this.cantidad = cantidad;
-    this.desc = desc;
+    this.desc = desc; //Descripción del producto
     this.precio = precio;
     this.img = img;
   }
 }
 
+// Array de productos disponibles en stock
 const stockProductos = [
   new Producto(
     1,
@@ -44,8 +46,10 @@ const stockProductos = [
   ),
 ];
 
+// Array de productos en el carrito de compras
 let carrito = [];
 
+// Sellecion de elementos del HTML
 const contenedor = document.querySelector("#contenedor");
 const carritoContenedor = document.querySelector("#carritoContenedor");
 const vaciarCarrito = document.querySelector("#vaciarCarrito");
@@ -65,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarCarrito();
   document.querySelector("#activarFuncion").click(procesarPedido);
 });
+
 if (formulario) {
   formulario.addEventListener("submit", enviarCompra);
 }
@@ -91,6 +96,7 @@ if (procesarCompra) {
   });
 }
 
+// Creación de las tarjetas del contenedor
 stockProductos.forEach((prod) => {
   const { id, nombre, precio, desc, img, cantidad } = prod;
   if (contenedor) {
@@ -109,6 +115,7 @@ stockProductos.forEach((prod) => {
   }
 });
 
+// Función agregar producto al carrito de compras
 const agregarProducto = (id) => {
   const existe = carrito.some((prod) => prod.id === id);
 
@@ -125,6 +132,7 @@ const agregarProducto = (id) => {
   mostrarCarrito();
 };
 
+// Función para mostrar los productos en el carrito de compras
 const mostrarCarrito = () => {
   const modalBody = document.querySelector(".modal .modal-body");
   if (modalBody) {
@@ -158,6 +166,7 @@ const mostrarCarrito = () => {
   } else {
     console.log("Algo");
   }
+
   carritoContenedor.textContent = carrito.length;
 
   if (precioTotal) {
@@ -170,15 +179,19 @@ const mostrarCarrito = () => {
   guardarStorage();
 };
 
+// Función para guardar la información del carrito en el localStorage
 function guardarStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+// Funcíon para eliminar un producto del carrito de compras
 function eliminarProducto(id) {
   const juegoId = id;
   carrito = carrito.filter((juego) => juego.id !== juegoId);
   mostrarCarrito();
 }
+
+// Función para procesar la compra y mostrar los productos en el formulario de compra
 function procesarPedido() {
   carrito.forEach((prod) => {
     const listaCompra = document.querySelector("#lista-compra tbody");

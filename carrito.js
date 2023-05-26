@@ -1,3 +1,4 @@
+// Función para procesar el pedido y mostrar la lista de productos en el formulario de compras
 export function procesarPedido() {
   carrito.forEach((prod) => {
     const contenedorCompra = document.querySelector("#contenedorCompra");
