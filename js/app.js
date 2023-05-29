@@ -186,8 +186,8 @@ function guardarStorage() {
 
 // Funcíon para eliminar un producto del carrito de compras
 function eliminarProducto(id) {
-  const juegoId = id;
-  carrito = carrito.filter((juego) => juego.id !== juegoId);
+  const alimentoId = id;
+  carrito = carrito.filter((alimento) => alimento.id !== alimentoId);
   mostrarCarrito();
 }
 
