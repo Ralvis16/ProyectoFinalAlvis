@@ -23,6 +23,12 @@ body {
   height: 50px;
 }
 
+.comtainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .imagen {
   max-width: 100%;
 }
