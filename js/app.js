@@ -18,7 +18,7 @@ const stockProductos = [
     1,
     "Es un alimento formulado específicamente para perros adultos de tamaño Maxi (de 26 a 44 kg) desde los 15 meses hasta los 5 años de edad.",
     77900,
-    "img/RoyalCanin15kg.png"
+    "../img/RoyalCanin15kg.png"
   ),
   new Producto(
     2,
@@ -26,7 +26,7 @@ const stockProductos = [
     1,
     "Es un alimento que provee una nutrición avanzada que ayuda a los perros de razas medianas a mantenerse fuertes y llenos de vitalidad.",
     23900,
-    "img/proplan-adult-razas-medianas.webp"
+    "../img/proplan-adult-razas-medianas.webp"
   ),
   new Producto(
     3,
@@ -34,7 +34,7 @@ const stockProductos = [
     1,
     "Es un alimento que provee una nutrición avanzada que ayuda a los perros de razas pequeñas a mantenerse fuertes y llenos de vitalidad.",
     24900,
-    "img/proplan-adult-razas-pequenas.webp"
+    "../img/proplan-adult-razas-pequenas.webp"
   ),
   new Producto(
     4,
@@ -42,7 +42,7 @@ const stockProductos = [
     1,
     "Es un alimento especialmente formulado para satisfacer las necesidades nutricionales de perros adultos propensos al sobrepeso, de razas medianas y grandes.",
     24900,
-    "img/proplan-reduced-calorie.webp"
+    "../img/proplan-reduced-calorie.webp"
   ),
 ];
 
@@ -91,7 +91,7 @@ if (procesarCompra) {
         confirmButtonText: "Aceptar",
       });
     } else {
-      location.href = "compra.html";
+      location.href = "../pages/compra.html";
     }
   });
 }
