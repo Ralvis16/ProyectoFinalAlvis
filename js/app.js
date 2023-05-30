@@ -150,7 +150,8 @@ const mostrarCarrito = () => {
         <p>Producto: ${nombre}</p>
         <p>Precio: $ ${precio.toLocaleString()}</p>
         <p>Cantidad: ${cantidad}</p>
-        <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
+        <button class="btn btn-danger"  
+        ="eliminarProducto(${id})">Eliminar producto</button>
         </div>
       </div>
       
@@ -175,7 +176,7 @@ const mostrarCarrito = () => {
       (acc, prod) => acc + prod.cantidad * prod.precio,
       0
     );
-    precioTotal.innerText = `$ ${total.toFixed(3).toLocaleString()}`;
+    precioTotal.innerText = `$ ${total.toLocaleString()}`;
   }
 
   guardarStorage();
@@ -207,7 +208,7 @@ function procesarPedido() {
               <td>${nombre}</td>
               <td>${cantidad}</td>
               <td>$ ${precio.toLocaleString()}</td>
-              <td>$ ${(precio * cantidad).toFixed(3).toLocaleString()}</td>
+              <td>$ ${(precio * cantidad).toLocaleString()}</td>
             `;
       listaCompra.appendChild(row);
     }
@@ -215,7 +216,7 @@ function procesarPedido() {
   totalProceso.innerText = `$ ${carrito.reduce(
     (acc, prod) => acc + prod.cantidad * prod.precio,
     0
-  ).toFixed(3).toLocaleString()}`;
+  ).toLocaleString()}`;
 }
 
 function enviarCompra(e) {
