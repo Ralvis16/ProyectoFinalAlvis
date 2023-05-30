@@ -105,7 +105,7 @@ stockProductos.forEach((prod) => {
     <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">${nombre}</h5>
-      <p class="card-text">Precio: $ ${precio}</p>
+      <p>Precio: $ ${precio.toLocaleString()}</p>
       <p class="card-text">${desc}</p>
       <p class="card-text">Cantidad: ${cantidad}</p>
       <button class="btn btn-primary" onclick="agregarProducto(${id})">Agregar al carrito</button>
@@ -129,6 +129,7 @@ const agregarProducto = (id) => {
     const item = stockProductos.find((prod) => prod.id === id);
     carrito.push(item);
   }
+
   mostrarCarrito();
 };
 
@@ -147,9 +148,9 @@ const mostrarCarrito = () => {
         </div>
         <div>
         <p>Producto: ${nombre}</p>
-      <p>Precio: $ ${precio}</p>
-      <p>Cantidad :${cantidad}</p>
-      <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
+        <p>Precio: $ ${precio.toLocaleString()}</p>
+        <p>Cantidad: ${cantidad}</p>
+        <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
         </div>
       </div>
       
@@ -170,10 +171,11 @@ const mostrarCarrito = () => {
   carritoContenedor.textContent = carrito.length;
 
   if (precioTotal) {
-    precioTotal.innerText = carrito.reduce(
+    const total = carrito.reduce(
       (acc, prod) => acc + prod.cantidad * prod.precio,
       0
     );
+    precioTotal.innerText = `$ ${total.toFixed(3).toLocaleString()}`;
   }
 
   guardarStorage();
@@ -189,7 +191,7 @@ function eliminarProducto(id) {
   const alimentoId = id;
   carrito = carrito.filter((alimento) => alimento.id !== alimentoId);
   mostrarCarrito();
-}
+};
 
 // Función para procesar la compra y mostrar los productos en el formulario de compra
 function procesarPedido() {
@@ -203,17 +205,17 @@ function procesarPedido() {
               <img class="img-fluid img-carrito" src="${img}"/>
               </td>
               <td>${nombre}</td>
-            <td>$ ${precio}</td>
-            <td>${cantidad}</td>
-            <td>$ ${precio * cantidad}</td>
+              <td>${cantidad}</td>
+              <td>$ ${precio.toLocaleString()}</td>
+              <td>$ ${(precio * cantidad).toFixed(3).toLocaleString()}</td>
             `;
       listaCompra.appendChild(row);
     }
   });
-  totalProceso.innerText = carrito.reduce(
+  totalProceso.innerText = `$ ${carrito.reduce(
     (acc, prod) => acc + prod.cantidad * prod.precio,
     0
-  );
+  ).toFixed(3).toLocaleString()}`;
 }
 
 function enviarCompra(e) {

@@ -12,7 +12,7 @@ export function procesarPedido() {
             <div>
             <p>Producto: ${nombre}</p>
           <p>Cantidad: ${cantidad}</p>
-          <p>Precio: ${precio}</p>
+          <p>Precio:$ ${precio.toLocaleString()}</p>
           <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
             </div>
           </div>
