@@ -44,6 +44,22 @@ const stockProductos = [
     24900,
     "../img/proplan-reduced-calorie.webp"
   ),
+  new Producto(
+    5,
+    "Pro Plan Sensitive Skin",
+    1,
+    "Es un alimento de alta tolerancia formulado con proteínas limitadas y seleccionadas como el salmón, para minimizar el riesgo de irritación de la piel asociada con la sensibilidad alimentaria común en perros adultos..",
+    23310,
+    "../img/proplan-sensitive-skin.webp"
+  ),
+  new Producto(
+    6,
+    "Royal Canin Gastro Intestinal",
+    1,
+    "Es un alimento dietético completo para perros formulado para reducir los trastornos agudos de la absorción intestinal y promover la recuperación nutricional y la convalecencia.",
+    25110,
+    "../img/royal-canin-gastro-intestinal.png"
+  ),
 ];
 
 // Array de productos en el carrito de compras
@@ -101,7 +117,7 @@ stockProductos.forEach((prod) => {
   const { id, nombre, precio, desc, img, cantidad } = prod;
   if (contenedor) {
     contenedor.innerHTML += `
-    <div class="card mt-3" style="width: 18rem;">
+    <div class="card mt-3" style="width: 17rem;">
     <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">${nombre}</h5>
