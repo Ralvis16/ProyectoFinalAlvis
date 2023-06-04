@@ -92,6 +92,25 @@ if (formulario) {
 
 if (vaciarCarrito) {
   vaciarCarrito.addEventListener("click", () => {
+    Toastify({
+      text: "Carrito Vacio",
+      duration: 2000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #BB2D3B, #F00001)",
+        borderRadius: "2rem",
+        textTransform: "uppercase",
+        fontSize: ".75rem",
+      },
+      offset: {
+        x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+      onClick: function(){} // Callback after click
+    }).showToast();
     carrito.length = [];
     mostrarCarrito();
   });
@@ -133,6 +152,27 @@ stockProductos.forEach((prod) => {
 
 // Función agregar producto al carrito de compras
 const agregarProducto = (id) => {
+
+  Toastify({
+    text: "Producto agregado",
+    duration: 2000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, F00000, F00001)",
+      borderRadius: "2rem",
+      textTransform: "uppercase",
+      fontSize: ".75rem",
+    },
+    offset: {
+      x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+    },
+    onClick: function(){} // Callback after click
+  }).showToast();
+
   const existe = carrito.some((prod) => prod.id === id);
 
   if (existe) {
@@ -204,6 +244,27 @@ function guardarStorage() {
 
 // Funcíon para eliminar un producto del carrito de compras
 function eliminarProducto(id) {
+
+  Toastify({
+    text: "Producto eliminado",
+    duration: 2000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #BB2D3B, #F00001)",
+      borderRadius: "2rem",
+      textTransform: "uppercase",
+      fontSize: ".75rem",
+    },
+    offset: {
+      x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+    },
+    onClick: function(){} // Callback after click
+  }).showToast();
+
   const alimentoId = id;
   carrito = carrito.filter((alimento) => alimento.id !== alimentoId);
   mostrarCarrito();

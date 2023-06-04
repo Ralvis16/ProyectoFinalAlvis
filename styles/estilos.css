@@ -11,7 +11,7 @@ html {
 }
 
 .navbar {
-  background-color: coral;
+  background-color: #ff7f50;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 .footer {
-  background-color: coral;
+  background-color: #ff7f50;
   position: absolute;
   bottom: 0;
   width: 100%;
