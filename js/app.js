@@ -224,7 +224,7 @@ const mostrarCarrito = () => {
     console.log("Algo");
   }
 
-  carritoContenedor.textContent = carrito.length;
+  carritoContenedor.textContent = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
 
   if (precioTotal) {
     const total = carrito.reduce(
