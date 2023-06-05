@@ -1,66 +1,35 @@
-// Definimos la Clase
-class Producto {
-  constructor(id, nombre, cantidad, desc, precio, img) {
-    this.id = id;
-    this.nombre = nombre;
-    this.cantidad = cantidad;
-    this.desc = desc; //Descripción del producto
-    this.precio = precio;
-    this.img = img;
-  }
-}
+let stockProductos = [];
 
-// Array de productos disponibles en stock
-const stockProductos = [
-  new Producto(
-    1,
-    "Royal Canin Maxi Adulto 15kg",
-    1,
-    "Es un alimento formulado específicamente para perros adultos de tamaño Maxi (de 26 a 44 kg) desde los 15 meses hasta los 5 años de edad.",
-    77900,
-    "../img/RoyalCanin15kg.png"
-  ),
-  new Producto(
-    2,
-    "Pro Plan Adulto Razas Medianas",
-    1,
-    "Es un alimento que provee una nutrición avanzada que ayuda a los perros de razas medianas a mantenerse fuertes y llenos de vitalidad.",
-    23900,
-    "../img/proplan-adult-razas-medianas.webp"
-  ),
-  new Producto(
-    3,
-    "Pro Plan Adulto Razas Pequeñas",
-    1,
-    "Es un alimento que provee una nutrición avanzada que ayuda a los perros de razas pequeñas a mantenerse fuertes y llenos de vitalidad.",
-    24900,
-    "../img/proplan-adult-razas-pequenas.webp"
-  ),
-  new Producto(
-    4,
-    "Pro Plan Adulto Calorias Reducidas",
-    1,
-    "Es un alimento especialmente formulado para satisfacer las necesidades nutricionales de perros adultos propensos al sobrepeso, de razas medianas y grandes.",
-    24900,
-    "../img/proplan-reduced-calorie.webp"
-  ),
-  new Producto(
-    5,
-    "Pro Plan Sensitive Skin",
-    1,
-    "Es un alimento de alta tolerancia formulado con proteínas limitadas y seleccionadas como el salmón, para minimizar el riesgo de irritación de la piel asociada con la sensibilidad alimentaria común en perros adultos..",
-    23310,
-    "../img/proplan-sensitive-skin.webp"
-  ),
-  new Producto(
-    6,
-    "Royal Canin Gastro Intestinal",
-    1,
-    "Es un alimento dietético completo para perros formulado para reducir los trastornos agudos de la absorción intestinal y promover la recuperación nutricional y la convalecencia.",
-    25110,
-    "../img/royal-canin-gastro-intestinal.png"
-  ),
-];
+fetch('./js/productos.json')
+  .then(response => response.json())
+  .then(data => {
+    // Aquí obtienes los datos del archivo JSON
+    stockProductos = data.stockProductos;
+
+    // Aquí creas el HTML de los productos
+    const productosHTML = stockProductos.map(prod => {
+      const { id, nombre, precio, desc, img, cantidad } = prod;
+      return `
+        <div class="card mt-3" style="width: 17rem;">
+          <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${nombre}</h5>
+            <p>Precio: $ ${precio.toLocaleString()}</p>
+            <p class="card-text">${desc}</p>
+            <p class="card-text">Cantidad: ${cantidad}</p>
+            <button class="btn btn-primary" onclick="agregarProducto(${id})">Agregar al carrito</button>
+          </div>
+        </div>
+      `;
+    });
+
+    // Aquí agregas el HTML de los productos al contenedor correspondiente
+    if (contenedor) {
+      contenedor.innerHTML = productosHTML.join('');
+    }
+  })
+  .catch(error => console.error(error));
+
 
 // Array de productos en el carrito de compras
 let carrito = [];
@@ -131,24 +100,6 @@ if (procesarCompra) {
   });
 }
 
-// Creación de las tarjetas del contenedor
-stockProductos.forEach((prod) => {
-  const { id, nombre, precio, desc, img, cantidad } = prod;
-  if (contenedor) {
-    contenedor.innerHTML += `
-    <div class="card mt-3" style="width: 17rem;">
-    <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">${nombre}</h5>
-      <p>Precio: $ ${precio.toLocaleString()}</p>
-      <p class="card-text">${desc}</p>
-      <p class="card-text">Cantidad: ${cantidad}</p>
-      <button class="btn btn-primary" onclick="agregarProducto(${id})">Agregar al carrito</button>
-    </div>
-  </div>
-    `;
-  }
-});
 
 // Función agregar producto al carrito de compras
 const agregarProducto = (id) => {
