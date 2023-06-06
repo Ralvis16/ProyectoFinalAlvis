@@ -20,7 +20,7 @@
         "id": 3,
         "nombre": "Pro Plan Adulto Razas Pequeñas",
         "cantidad": 1,
-        "desc": "Es un alimento que provee una nutrición avanzada que ayuda a los perros de razas pequeñas a mantenerse fuertes y llenos de vitalidad.",
+        "desc": "Es un alimento provee una nutrición avanzada que ayuda a los perros de razas pequeñas a mantenerse fuertes y llenos de vitalidad.",
         "precio": 24900,
         "img": "../img/proplan-adult-razas-pequenas.webp"
       },
@@ -28,7 +28,7 @@
         "id": 4,
         "nombre": "Pro Plan Adulto Calorias Reducidas",
         "cantidad": 1,
-        "desc": "Es un alimento especialmente formulado para satisfacer las necesidades nutricionales de perros adultos propensos al sobrepeso, de razas medianas y grandes.",
+        "desc": "Es un alimento especialmente formulado para satisfacer las necesidades nutricionales de perros adultos propensos al sobrepeso.",
         "precio": 24900,
         "img": "../img/proplan-reduced-calorie.webp"
       },
@@ -36,7 +36,7 @@
         "id": 5,
         "nombre": "Pro Plan Sensitive Skin",
         "cantidad": 1,
-        "desc": "Es un alimento de alta tolerancia formulado con proteínas limitadas y seleccionadas como el salmón, para minimizar el riesgo de irritación de la piel asociada con la sensibilidad alimentaria común en perros adultos..",
+        "desc": "Es un alimento de alta tolerancia formulado con proteínas limitadas y seleccionadas como el salmón, para minimizar el riesgo de irritación de la piel asociada con la sensibilidad alimentaria común en perros adultos.",
         "precio": 23310,
         "img": "../img/proplan-sensitive-skin.webp"
       },

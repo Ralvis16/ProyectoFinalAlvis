@@ -3,14 +3,14 @@ let stockProductos = [];
 fetch('./js/productos.json')
   .then(response => response.json())
   .then(data => {
-    // Aquí obtienes los datos del archivo JSON
+    // Obteniendo los datos del archivo JSON
     stockProductos = data.stockProductos;
 
-    // Aquí creas el HTML de los productos
+    // Creando el HTML de los productos
     const productosHTML = stockProductos.map(prod => {
       const { id, nombre, precio, desc, img, cantidad } = prod;
       return `
-        <div class="card mt-3" style="width: 17rem;">
+        <div class="card mt-3" style="width: 18rem; height: 100%;">
           <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">${nombre}</h5>
@@ -23,7 +23,6 @@ fetch('./js/productos.json')
       `;
     });
 
-    // Aquí agregas el HTML de los productos al contenedor correspondiente
     if (contenedor) {
       contenedor.innerHTML = productosHTML.join('');
     }

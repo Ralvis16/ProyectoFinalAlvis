@@ -40,16 +40,11 @@ a {
   font-weight: 700;
 }
 
-body {
-  background-color: #e3d8d6;
-  overflow-x: hidden;
-  margin-bottom: 50px;
-}
-
 .caja {
   display: flex;
   gap: 1rem;
   padding-left: 6rem;
+  margin-bottom: 6rem;
 }
 
 .modal-contenedor {
