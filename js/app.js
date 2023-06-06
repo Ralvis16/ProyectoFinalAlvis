@@ -14,7 +14,7 @@ fetch('./js/productos.json')
           <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
           <div class="card-body text-light">
             <h5 class="card-title">${nombre}</h5>
-            <p>Precio: $ ${precio.toLocaleString()}</p>
+            <p>Precio: $${precio.toLocaleString()}</p>
             <p class="card-text">${desc}</p>
             <p class="card-text">Cantidad: ${cantidad}</p>
             <button class="btn btn-primary" onclick="agregarProducto(${id})">Agregar al carrito</button>
@@ -154,7 +154,7 @@ const mostrarCarrito = () => {
         </div>
         <div>
         <p>Producto: ${nombre}</p>
-        <p>Precio: $ ${precio.toLocaleString()}</p>
+        <p>Precio: $${precio.toLocaleString()}</p>
         <p>Cantidad: ${cantidad}</p>
         <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
         </div>
@@ -230,13 +230,13 @@ function procesarPedido() {
       row.innerHTML += `
               <td>${nombre}</td>
               <td>${cantidad}</td>
-              <td>$ ${precio.toLocaleString()}</td>
-              <td>$ ${(precio * cantidad).toLocaleString()}</td>
+              <td>$${precio.toLocaleString()}</td>
+              <td>$${(precio * cantidad).toLocaleString()}</td>
             `;
       listaCompra.appendChild(row);
     }
   });
-  totalProceso.innerText = `$ ${carrito.reduce(
+  totalProceso.innerText = `$${carrito.reduce(
     (acc, prod) => acc + prod.cantidad * prod.precio,
     0
   ).toLocaleString()}`;
