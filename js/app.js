@@ -10,9 +10,9 @@ fetch('./js/productos.json')
     const productosHTML = stockProductos.map(prod => {
       const { id, nombre, precio, desc, img, cantidad } = prod;
       return `
-        <div class="card mt-3" style="width: 18rem; height: 100%;">
+        <div class="card mt-3" style="width: 18rem; height: 100%;background-image: url('./img/fondo.avif');">
           <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-light">
             <h5 class="card-title">${nombre}</h5>
             <p>Precio: $ ${precio.toLocaleString()}</p>
             <p class="card-text">${desc}</p>

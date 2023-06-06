@@ -11,17 +11,18 @@ html {
 }
 
 .navbar {
-  background-color: #ff7f50;
+  background-color: #415361;
 }
 
 body {
-  background-color: #e3d8d6;
+  background-color: #3fb9a5;
   overflow-x: hidden;
   margin-bottom: 50px;
 }
 
 .footer {
-  background-color: #ff7f50;
+  background-color: #415361;
+  text-shadow: 1px 1px black;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -38,6 +39,11 @@ a {
 
 .alerta {
   font-weight: 700;
+}
+
+.card-body {
+  text-shadow: 1px 1px black;
+  background-color: #415361;
 }
 
 .caja {
@@ -59,7 +65,8 @@ a {
 }
 
 .modal-content {
-  background-color: #e3d8d6;
+  background-color: #415361;
+  text-shadow: 1px 1px black;
 }
 
 .parrafo {
