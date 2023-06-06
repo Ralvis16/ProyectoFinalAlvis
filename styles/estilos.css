@@ -86,3 +86,11 @@ a {
 .boton {
   opacity: 0;
 }
+
+th {
+  border-color: #3fb9a5;
+}
+
+tr {
+  border-color: #3fb9a5;
+}

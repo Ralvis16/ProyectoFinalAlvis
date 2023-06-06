@@ -228,9 +228,6 @@ function procesarPedido() {
     if (listaCompra) {
       const row = document.createElement("tr");
       row.innerHTML += `
-              <td>
-              <img class="img-fluid img-carrito" src="${img}"/>
-              </td>
               <td>${nombre}</td>
               <td>${cantidad}</td>
               <td>$ ${precio.toLocaleString()}</td>
