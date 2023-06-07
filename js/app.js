@@ -1,13 +1,13 @@
 let stockProductos = [];
 
-fetch('./js/productos.json')
-  .then(response => response.json())
-  .then(data => {
+fetch("./js/productos.json")
+  .then((response) => response.json())
+  .then((data) => {
     // Obteniendo los datos del archivo JSON
     stockProductos = data.stockProductos;
 
     // Creando el HTML de los productos
-    const productosHTML = stockProductos.map(prod => {
+    const productosHTML = stockProductos.map((prod) => {
       const { id, nombre, precio, desc, img, cantidad } = prod;
       return `
         <div class="card mt-3" style="width: 18rem; height: 100%;background-image: url('./img/fondo.avif');">
@@ -24,11 +24,10 @@ fetch('./js/productos.json')
     });
 
     if (contenedor) {
-      contenedor.innerHTML = productosHTML.join('');
+      contenedor.innerHTML = productosHTML.join("");
     }
   })
-  .catch(error => console.error(error));
-
+  .catch((error) => console.error(error));
 
 // Array de productos en el carrito de compras
 let carrito = [];
@@ -74,10 +73,10 @@ if (vaciarCarrito) {
         fontSize: ".75rem",
       },
       offset: {
-        x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
       },
-      onClick: function(){} // Callback after click
+      onClick: function () {}, // Callback after click
     }).showToast();
     carrito.length = [];
     mostrarCarrito();
@@ -99,10 +98,8 @@ if (procesarCompra) {
   });
 }
 
-
 // Función agregar producto al carrito de compras
 const agregarProducto = (id) => {
-
   Toastify({
     text: "Producto agregado",
     duration: 2000,
@@ -117,10 +114,10 @@ const agregarProducto = (id) => {
       fontSize: ".75rem",
     },
     offset: {
-      x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-      y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
     },
-    onClick: function(){} // Callback after click
+    onClick: function () {}, // Callback after click
   }).showToast();
 
   const existe = carrito.some((prod) => prod.id === id);
@@ -174,7 +171,10 @@ const mostrarCarrito = () => {
     console.log("Algo");
   }
 
-  carritoContenedor.textContent = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+  carritoContenedor.textContent = carrito.reduce(
+    (acc, prod) => acc + prod.cantidad,
+    0
+  );
 
   if (precioTotal) {
     const total = carrito.reduce(
@@ -194,7 +194,6 @@ function guardarStorage() {
 
 // Funcíon para eliminar un producto del carrito de compras
 function eliminarProducto(id) {
-
   Toastify({
     text: "Producto eliminado",
     duration: 2000,
@@ -209,16 +208,16 @@ function eliminarProducto(id) {
       fontSize: ".75rem",
     },
     offset: {
-      x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-      y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
     },
-    onClick: function(){} // Callback after click
+    onClick: function () {}, // Callback after click
   }).showToast();
 
   const alimentoId = id;
   carrito = carrito.filter((alimento) => alimento.id !== alimentoId);
   mostrarCarrito();
-};
+}
 
 // Función para procesar la compra y mostrar los productos en el formulario de compra
 function procesarPedido() {
@@ -236,10 +235,9 @@ function procesarPedido() {
       listaCompra.appendChild(row);
     }
   });
-  totalProceso.innerText = `$${carrito.reduce(
-    (acc, prod) => acc + prod.cantidad * prod.precio,
-    0
-  ).toLocaleString()}`;
+  totalProceso.innerText = `$${carrito
+    .reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+    .toLocaleString()}`;
 }
 
 function enviarCompra(e) {
