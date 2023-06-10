@@ -1,6 +1,6 @@
 let stockProductos = [];
 
-fetch("./js/productos.json")
+fetch("./json/productos.json")
   .then((response) => response.json())
   .then((data) => {
     // Obteniendo los datos del archivo JSON
@@ -165,7 +165,7 @@ const mostrarCarrito = () => {
   if (carrito.length === 0) {
     console.log("Nada");
     modalBody.innerHTML = `
-    <p class="text-center text-primary parrafo">¡Aun no agregaste nada!</p>
+    <p class="text-center text-primary parrafo text-white">¡Aún no agregaste nada!</p>
     `;
   } else {
     console.log("Algo");
