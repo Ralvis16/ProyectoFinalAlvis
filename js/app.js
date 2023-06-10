@@ -143,7 +143,7 @@ const mostrarCarrito = () => {
     modalBody.innerHTML = "";
     carrito.forEach((prod) => {
       const { id, nombre, precio, desc, img, cantidad } = prod;
-      console.log(modalBody);
+      console.log(prod);
       modalBody.innerHTML += `
       <div class="modal-contenedor">
         <div>
