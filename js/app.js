@@ -1,6 +1,6 @@
 let stockProductos = [];
 
-fetch("./json/productos.json")
+fetch("./productos.json")
   .then((response) => response.json())
   .then((data) => {
     // Obteniendo los datos del archivo JSON
